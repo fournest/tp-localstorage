@@ -26,39 +26,28 @@ function renderTasks(tasks) {
             taskInput.value = ``;
         }
 
-        // let nbTasks = 0;
-        // const compter = document.createElement(`compter`);
-        // const resultat = document.createElement(`resultat`);
-
-        // compter.addEventListener(`click`, function () {
-        //     nbTasks++;
-        //     resultat.textContent = ` ${nbTasks} tâches restantes.`;
-        //     console.log(resultat);
-            
-        // });
-        // taskList.append(nbTasks)
-    }
-};
-
-const savedTask = localStorage.getItem(`mySavedTask`)
-
+    };
+    
+    const savedTask = localStorage.getItem(`mySavedTask`)
+    
 if (savedTask) {
     const obj = JSON.parse(savedTask);
     tasks = obj;
     renderTasks(tasks);
 
-
+    
 }
 addBtn.addEventListener(`click`, function () {
     const taskText = taskInput.value.trim();
     if (taskText !== ``) {
         tasks.push(taskText);
-
+        
         renderTasks(tasks);
     }
     localStorage.setItem(`mySavedTask`, JSON.stringify(tasks));
 });
 
+}
 
 
 
@@ -70,3 +59,15 @@ clearBtn.addEventListener(`click`, function () {
     tasks = [];
     renderTasks(tasks);
 });
+
+// let nbTasks = 0;
+// const compter = document.createElement(`compter`);
+// const resultat = document.createElement(`resultat`);
+
+// compter.addEventListener(`click`, function () {
+//     nbTasks++;
+//     resultat.textContent = ` ${nbTasks} tâches restantes.`;
+//     console.log(resultat);
+    
+// });
+// taskList.append(nbTasks)
